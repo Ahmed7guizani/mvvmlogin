@@ -19,7 +19,13 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.loginLiveData.observe(this, Observer {
             when(it){
                 is LoginSuccess -> {
-                    //TODO Navigate
+                    MaterialAlertDialogBuilder(this)
+                        .setTitle("Success")
+                        .setMessage("log in ")
+                        .setPositiveButton("Ok") { dialog, which ->
+                            dialog.dismiss()
+                        }
+                        .show()
                 }
                 LoginError -> {
                     MaterialAlertDialogBuilder(this)
